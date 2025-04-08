@@ -20,6 +20,14 @@ spec:
           env:
             - name: VPN_CONFIGBUILDER_DNSNAME
               value: {{ .Values.vpn.dns_name }}
+              {{- if .Values.vpn.dns_srv1 }}
+            - name: VPN_DNS_SRV1
+              value: {{ .Values.vpn.dns_srv1 }}
+              {{- end }}
+              {{- if .Values.vpn.dns_srv2 }}
+            - name: VPN_DNS_SRV2
+              value: {{ .Values.vpn.dns_srv2 }}
+              {{- end }}
             - name: VPN_CONFIGBUILDER_PSK
               valueFrom:
                 secretKeyRef:
