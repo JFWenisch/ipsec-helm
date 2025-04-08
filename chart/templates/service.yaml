@@ -7,6 +7,10 @@ spec:
   selector:
     app.kubernetes.io/name: {{ template "ipsec-vpn-server.fullname" . }}-vpn-server
   ports:
+{{- if .Values.service.externalIP }}
+  externalIPs:
+    - {{ .Values.service.externalIP }}
+{{- end }}
     - name: {{ .Values.service.ports.isakmp.name }}
       port: {{ .Values.service.ports.isakmp.port }}
       targetPort: vpn-isakmp

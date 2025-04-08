@@ -22,8 +22,9 @@ users:
   password: password
 
 service:
+  type: ClusterIP
   enabled: true
-
+  externalIP: 
   ports:
     isakmp:
       name: vpn-isakmp
