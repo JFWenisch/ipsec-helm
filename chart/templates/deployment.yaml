@@ -12,6 +12,7 @@ spec:
       labels:
         app.kubernetes.io/name: {{ template "ipsec-vpn-server.fullname" . }}-vpn-server
     spec:
+      hostNetwork: {{ .Values.hostNetwork }}
       initContainers:
         - name: init-config
           image: "{{ .Values.initContainer.image.repository }}:{{ .Values.initContainer.image.tag }}"

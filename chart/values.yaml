@@ -1,6 +1,6 @@
 # recommended to overwrite name when using sealed-secrets
 fullnameOverride: vpn
-
+hostNetwork: false
 image:
   repository: hwdsl2/ipsec-vpn-server
   tag: latest
